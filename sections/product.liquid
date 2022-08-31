@@ -1,6 +1,22 @@
+<p>{{ product.vendor }}</p>
 <p>{{ product.title }}</p>
 <p>{{ product.description }}</p>
 <p>{{ product.price | money }}</p>
 {% form 'product', product %}
+  <select>
+    {% for variant in product.variants %}
+      <option
+        value="{{ variant.id }}"
+        {% if variant == product.selected_or_first_available_variant %}
+          selected="selected"
+        {% endif %}
+      >
+        {{ variant.title }}
+        {{ variant.price }}
+      </option>
+    {% endfor %}
+  </select>
   <input type="submit" value="Add to cart">
+  <input type="text" name="quantity" min="1" value="1">
+  {{ form | payment_button }}
 {% endform %}
