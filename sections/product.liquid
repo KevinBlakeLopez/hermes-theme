@@ -12,7 +12,7 @@
         {% endif %}
       >
         {{ variant.title }}
-        {{ variant.price }}
+        {{ variant.price | money }}
       </option>
     {% endfor %}
   </select>
