@@ -1,10 +1,10 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Dusk",
-    "theme_author": "James Trenda",
+    "theme_name": "Hermes",
+    "theme_author": "Kevin Lopez",
     "theme_version": "1.0.0",
-    "theme_documentation_url": "https://github.com/jamestrenda/dusk",
-    "theme_support_url": "https://github.com/jamestrenda/dusk"
+    "theme_documentation_url": "https:\/\/github.com\/KevinBlakeLopez\/hermes",
+    "theme_support_url": "https:\/\/github.com\/KevinBlakeLopez\/hermes"
   }
 ]
