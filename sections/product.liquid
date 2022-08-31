@@ -4,19 +4,21 @@
 <p>{{ variant.price }}</p>
 {% comment %} <p>{{ product.price | money }}</p> {% endcomment %}
 {% form 'product', product %}
-  <select name="id">
-    {% for variant in product.variants %}
-      <option
-        value="{{ variant.id }}"
-        {% if variant == product.selected_or_first_available_variant %}
-          selected="selected"
-        {% endif %}
-      >
-        {{ variant.title }}
-        {{ variant.price | money }}
-      </option>
-    {% endfor %}
-  </select>
+  {% if product.variants.size > 1 %}
+    <select name="id">
+      {% for variant in product.variants %}
+        <option
+          value="{{ variant.id }}"
+          {% if variant == product.selected_or_first_available_variant %}
+            selected="selected"
+          {% endif %}
+        >
+          {{ variant.title }}
+          {{ variant.price | money }}
+        </option>
+      {% endfor %}
+    </select>
+  {% endif %}
   <input type="text" name="properties[Monogram]">
   <input type="submit" value="Add to cart">
   <input type="text" name="quantity" min="1" value="1">
