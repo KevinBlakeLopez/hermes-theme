@@ -1,7 +1,7 @@
 <p>{{ product.vendor }}</p>
 <p>{{ product.title }}</p>
 <p>{{ product.description }}</p>
-<p>{{ product.price | money }}</p>
+{% comment %} <p>{{ product.price | money }}</p> {% endcomment %}
 {% form 'product', product %}
   <select>
     {% for variant in product.variants %}
@@ -16,6 +16,7 @@
       </option>
     {% endfor %}
   </select>
+  <input type="text" name="properties[Monogram]">
   <input type="submit" value="Add to cart">
   <input type="text" name="quantity" min="1" value="1">
   {{ form | payment_button }}
