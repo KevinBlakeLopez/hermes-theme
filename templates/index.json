@@ -2,16 +2,17 @@
   "sections": {
     "main": {
       "type": "page",
-      "settings": {}
+      "settings": {
+      }
     },
     "banner": {
       "type": "banner",
-      "settings": {}
-    },
-    "hero": {
-      "type": "hero",
-      "settings": {}
+      "settings": {
+      }
     }
   },
-  "order": ["banner", "hero", "main"]
+  "order": [
+    "main",
+    "banner"
+  ]
 }

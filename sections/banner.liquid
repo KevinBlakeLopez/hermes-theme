@@ -1,28 +1,35 @@
-<h1>Banner</h1>
+<div>
+  <h1>
+    {{ settings.name -}}
+    {{- section.settings.header }}
+  </h1>
+  {% if section.settings.extra_offer %}
+    <p>Additional 50% off!</p>
+  {% endif %}
+</div>
 
 {% schema %}
 {
   "name": "Killer Banner!",
   "tag": "section",
-  "class": "banner",
-  "limit": 1,
   "settings": [
     {
       "type": "text",
-      "id": "banner",
-      "label": "banner text",
+      "id": "header",
+      "label": "header",
       "default": "my Killer Banner!"
     },
     {
-      "type": "liquid",
-      "id": "magic_required",
-      "label": "my custom code"
+      "type": "checkbox",
+      "id": "extra_offer",
+      "label": "extra offer",
+      "default": false
     }
   ],
-  "templates": [
-    "index",
-    "product",
-    "page"
+  "presets": [
+    {
+      "name": "Killer Banner!"
+    }
   ]
 }
 {% endschema %}
