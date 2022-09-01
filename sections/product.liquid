@@ -2,7 +2,7 @@
 <p>{{ product.title }}</p>
 <p>{{ product.description }}</p>
 <p>{{ variant.price }}</p>
-{{ product | image_url | image_tag }}
+{{ product | image_url: width: 40 | image_tag }}
 {% comment %} <p>{{ product.price | money }}</p> {% endcomment %}
 {% form 'product', product %}
   {% if product.variants.size > 1 %}
