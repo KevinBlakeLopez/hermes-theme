@@ -1,36 +1,8 @@
-{% comment %}
-   <p>{{ product.vendor }}</p>
-  <p>{{ product.title }}</p>
-  <p>{{ product.description }}</p>
-  <p>{{ product.price | money }}</p>
-  {{ product | image_url | image_tag }}
-
-  {% form 'product', product %}
-    <select name="id">
-      {% for variant in product.variants %}
-        <option
-          value="{{ variant.id }}"
-          {% if variant == product.selected_or_first_available_variant %}
-            selected="selected"
-          {% endif %}
-        >
-          {{ variant.title }}
-          {{ variant.price | money }}
-        </option>
-      {% endfor %}
-    </select>
-
-    <input type="text" name="properties[Monogram]">
-    <input type="submit" value="Add to cart">
-    <input type="text" name="quantity" min="1" value="1">
-    {{ form | payment_button }}
-  {% endform %}
-{% endcomment %}
-
+<p>{{ product.vendor }}</p>
 <p>{{ product.title }}</p>
 <p>{{ product.description }}</p>
 <p>{{ product.price | money }}</p>
-{{ product | image_url | image_tag }}
+{{ product | image_url: width: 75 | image_tag }}
 
 {% form 'product', product %}
   <select name="id">
@@ -41,10 +13,14 @@
           selected="selected"
         {% endif %}
       >
-        {{ variant.title }} - {{ variant.price | money }}
+        {{ variant.title }}
+        {{ variant.price | money }}
       </option>
     {% endfor %}
   </select>
-  <input type="text" name="quantity" min="1" value="1">
+
+  <input type="text" name="properties[Monogram]">
   <input type="submit" value="Add to cart">
+  <input type="text" name="quantity" min="1" value="1">
+  {{ form | payment_button }}
 {% endform %}
