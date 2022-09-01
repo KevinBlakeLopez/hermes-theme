@@ -1,7 +1,7 @@
 <p>{{ product.vendor }}</p>
 <p>{{ product.title }}</p>
 <p>{{ product.description }}</p>
-<p>{{ variant.price }}</p>
+<p>{{ product.price | money }}</p>
 {{ product | image_url | image_tag }}
 {% comment %} <p>{{ product.price | money }}</p> {% endcomment %}
 {% form 'product', product %}
