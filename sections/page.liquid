@@ -1,1 +1,13 @@
 <p>This is the page section.</p>
+{% if shop.customer_accounts_enabled %}
+  {% if customer %}
+    <a href="{{ routes.account_url }}">Account</a>
+  {% else %}
+    <a href="{{ routes.account_login_url}}">Login</a>
+
+    {% if shop.customer_accounts_optional %}
+      <span>or</span>
+      <a href="{{ routes.account_register_url }}">Create an account</a>
+    {% endif %}
+  {% endif %}
+{% endif %}
