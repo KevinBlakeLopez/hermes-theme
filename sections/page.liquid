@@ -2,8 +2,9 @@
 {% if shop.customer_accounts_enabled %}
   {% if customer %}
     <a href="{{ routes.account_url }}">Account</a>
+    <a href="{{ routes.account_logout_url }}">Logout</a>
   {% else %}
-    <a href="{{ routes.account_login_url}}">Login</a>
+    <a href="{{ routes.account_login_url }}">Login</a>
 
     {% if shop.customer_accounts_optional %}
       <span>or</span>
